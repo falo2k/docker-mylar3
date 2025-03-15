@@ -29,13 +29,13 @@ RUN \
     zlib && \
   echo "**** install mylar3 ****" && \
   if [ -z ${MYLAR3_RELEASE+x} ]; then \
-    MYLAR3_RELEASE=$(curl -sX GET https://api.github.com/repos/mylar3/mylar3/releases/latest \
+    MYLAR3_RELEASE=$(curl -sX GET https://api.github.com/repos/falo2k/mylar3/commits/crc_check_files \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   mkdir /app/mylar3 && \
   curl -o \
     /tmp/mylar3.tar.gz -L \
-    "https://github.com/mylar3/mylar3/archive/${MYLAR3_RELEASE}.tar.gz" && \
+    "https://github.com/falo2k/mylar3/archive/${MYLAR3_RELEASE}.tar.gz" && \
   tar xf /tmp/mylar3.tar.gz -C \
     /app/mylar3/ --strip-components=1 && \
   cd /app/mylar3 && \
